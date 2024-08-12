@@ -59,7 +59,8 @@ h6 {
   top: 50%;
   transition: top 0.4s ease, opacity 0.4s ease, visibility 0.4s ease;
 }
-.card:hover .card-img img {
+/* image hover effect */
+.content-one .card:hover .card-img img {
   transform: scale(1.1);
   transition: transform 0.4s ease;
 }
@@ -113,17 +114,94 @@ h6 {
   font-weight: 400;
 }
 
+/* -----------------------------------Component two css---------------------- */
+.content-two {
+  width: 100%;
+}
+
+.card-two-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0px 25px;
+  margin-top: 80px;
+}
+
+.card-two-container .card {
+  width: 290px;
+}
+
+.content-two .card-img img {
+  position: relative;
+}
+
+.content-two .card:hover .cart-btn {
+  visibility: visible;
+  opacity: 1;
+  top: 50%;
+  transition: top 0.4s ease, opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.content-two .cart-btn {
+  text-align: center;
+  width: 90%;
+  height: 90%;
+  color: black;
+  background: white;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+  position: absolute;
+  visibility: hidden;
+  opacity: 0;
+  transition: top 0.4s ease, opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.content-two .cart-btn i {
+  position: relative;
+  display: inline-block;
+  top: 51%;
+  font-size: 1.2rem;
+  opacity: 0.6s;
+}
+/* Underline effect on Add to Cart text */
+.content-two .cart-btn h1 {
+  position: relative;
+  display: inline-block;
+  top: 50%;
+}
+
+.content-two .cart-btn h1::after {
+  content: "";
+  position: absolute;
+  left: 0%;
+  bottom: -2px;
+  height: 2px;
+  width: 100%;
+  background-color: black;
+  transition: width 0.4s ease;
+}
+
+/* Remove underline on hover */
+.content-two .cart-btn h1:hover::after {
+  width: 0;
+}
+
 /* -------------------------------Responsive------------------------------ */
+/* Mobile */
 @media (max-width: 600px) {
   .card-heading {
     padding: 2vw;
   }
+
   h6 {
     text-align: center;
     font-size: 3.1rem;
     font-weight: 500;
     padding-bottom: 1rem;
   }
+
   .card-container {
     width: 100%;
     height: auto;
@@ -133,6 +211,7 @@ h6 {
     align-items: center;
     gap: 3px 3px;
   }
+
   .card {
     width: 100%;
     padding: 2rem;
@@ -142,24 +221,25 @@ h6 {
     align-items: center;
     justify-content: center;
   }
+
   .cart-btn {
     color: white;
     background: black;
-    /* padding: 20px 30px; */
     width: 50vw;
     height: 7vh;
     transform: translate(-50%, -50%);
     left: 50%;
-    top: 52%;
+    top: 50%;
     position: absolute;
     visibility: hidden;
     opacity: 0;
-    transition: top 0.2s ease, opacity 0.2s ease, visibility 0.2s ease;
+    transition: top 0.4s ease, opacity 0.4s ease, visibility 0.4s ease;
   }
 }
+
 /* Tablet  */
 @media (min-width: 601px) and (max-width: 1024px) {
-  .card-container {
+  .content-one .card-container {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
@@ -167,7 +247,8 @@ h6 {
     align-items: center;
     gap: 140px 25px;
   }
-  .card {
+
+  .content-one .card {
     width: 240px;
     height: 310px;
     overflow: hidden;
@@ -177,21 +258,54 @@ h6 {
     justify-content: center;
   }
 
-  .cart-btn {
+  .content-one .cart-btn {
     width: 80%;
     text-align: center;
     color: white;
     background: black;
-    padding: 2 1px;
+    padding: 10px 20px;
     display: flex;
     justify-content: center;
     align-items: center;
     transform: translate(-50%, -50%);
     left: 50%;
-    top: 52%;
+    top: 50%;
     position: absolute;
     visibility: hidden;
     opacity: 0;
-    transition: top 0.2s ease, opacity 0.2s ease, visibility 0.2s ease;
+    transition: top 0.4s ease, opacity 0.4s ease, visibility 0.4s ease;
+  }
+}
+
+/* --------------Component Two Responsivness---------------------- */
+/* Mobile */
+@media (max-width: 600px) {
+  .card-two-container .card {
+    width: 100%;
+    padding: 0px 15px;
+  }
+}
+/* Tablet */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .card-two-container {
+    padding-top: 120px;
+  }
+  .card-two-container .card {
+    width: 240px;
+    height: 350px;
+    padding-bottom: 20px;
+  }
+
+  .content-two .card-img {
+    /* position: relative; */
+    width: 100%;
+    height: 100%;
+  }
+
+  .content-two .card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Maintain cover and fill the container */
+    transition: transform 0.4s ease;
   }
 }
