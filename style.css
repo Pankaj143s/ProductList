@@ -1,0 +1,197 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "DM Sans", sans-serif;
+}
+main {
+  /* background: lightblue; */
+}
+.content-one {
+  padding-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+h5 {
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 500;
+  padding-bottom: 0.5rem;
+}
+
+h6 {
+  text-align: center;
+  font-size: 3.1rem;
+  font-weight: 500;
+  padding-bottom: 3rem;
+}
+.card-container {
+  /* width: 100%; */
+  width: calc(100% - 33.5rem);
+  height: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 100px 30px;
+
+  /* background: blue; */
+}
+
+.card {
+  /* background: red; */
+  width: 410px;
+  height: 500px;
+  /* padding: 2rem; */
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.card:hover .cart-btn {
+  visibility: visible;
+  opacity: 1;
+  top: 50%;
+  transition: top 0.4s ease, opacity 0.4s ease, visibility 0.4s ease;
+}
+.card:hover .card-img img {
+  transform: scale(1.1);
+  transition: transform 0.4s ease;
+}
+
+.card-img {
+  position: relative;
+  overflow: hidden;
+}
+.card-img img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+
+  transition: transform 0.4s ease;
+}
+
+.cart-btn {
+  color: white;
+  background: black;
+  padding: 20px 50px;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 52%;
+  position: absolute;
+  visibility: hidden;
+  opacity: 0;
+  transition: top 0.2s ease, opacity 0.2s ease, visibility 0.2s ease;
+}
+
+.cart-btn h1 {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.card-title {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 20px;
+}
+.card-title h1 {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+.card-category {
+  width: 100%;
+  opacity: 0.3;
+}
+.card-category h1 {
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+/* -------------------------------Responsive------------------------------ */
+@media (max-width: 600px) {
+  .card-heading {
+    padding: 2vw;
+  }
+  h6 {
+    text-align: center;
+    font-size: 3.1rem;
+    font-weight: 500;
+    padding-bottom: 1rem;
+  }
+  .card-container {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 3px 3px;
+  }
+  .card {
+    width: 100%;
+    padding: 2rem;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .cart-btn {
+    color: white;
+    background: black;
+    /* padding: 20px 30px; */
+    width: 50vw;
+    height: 7vh;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 52%;
+    position: absolute;
+    visibility: hidden;
+    opacity: 0;
+    transition: top 0.2s ease, opacity 0.2s ease, visibility 0.2s ease;
+  }
+}
+/* Tablet  */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .card-container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 140px 25px;
+  }
+  .card {
+    width: 240px;
+    height: 310px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .cart-btn {
+    width: 80%;
+    text-align: center;
+    color: white;
+    background: black;
+    padding: 2 1px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 52%;
+    position: absolute;
+    visibility: hidden;
+    opacity: 0;
+    transition: top 0.2s ease, opacity 0.2s ease, visibility 0.2s ease;
+  }
+}
