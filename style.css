@@ -622,6 +622,630 @@ h6 {
 }
 
 /* Component Three CSS--------------------------- */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "DM Sans", sans-serif;
+}
+main {
+  /* background: lightblue; */
+}
+.content-one {
+  padding-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+h5 {
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 500;
+  padding-bottom: 0.5rem;
+}
+
+h6 {
+  text-align: center;
+  font-size: 3.1rem;
+  font-weight: 500;
+  padding-bottom: 3rem;
+}
+.card-container {
+  /* width: 100%; */
+  width: calc(100% - 33.5rem);
+  height: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 100px 30px;
+
+  /* background: blue; */
+}
+
+.card {
+  /* background: red; */
+  width: 410px;
+  height: 500px;
+  /* padding: 2rem; */
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.card:hover .cart-btn {
+  visibility: visible;
+  opacity: 1;
+  top: 50%;
+  transition: top 0.4s ease, opacity 0.4s ease, visibility 0.4s ease;
+}
+/* image hover effect */
+.content-one .card:hover .card-img img {
+  transform: scale(1.1);
+  transition: transform 0.4s ease;
+}
+
+.card-img {
+  position: relative;
+  overflow: hidden;
+}
+.card-img img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+
+  transition: transform 0.4s ease;
+}
+
+.cart-btn {
+  color: white;
+  background: black;
+  padding: 20px 50px;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 52%;
+  position: absolute;
+  visibility: hidden;
+  opacity: 0;
+  transition: top 0.2s ease, opacity 0.2s ease, visibility 0.2s ease;
+}
+
+.cart-btn h1 {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.card-title {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 20px;
+}
+.card-title h1 {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+.card-category {
+  width: 100%;
+  opacity: 0.3;
+}
+.card-category h1 {
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+/* -----------------------------------Component two css---------------------- */
+.content-two {
+  width: 100%;
+}
+
+.card-two-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0px 25px;
+  margin-top: 80px;
+}
+
+.card-two-container .card {
+  width: 290px;
+}
+
+.content-two .card-img img {
+  position: relative;
+}
+
+.content-two .card:hover .cart-btn {
+  visibility: visible;
+  opacity: 1;
+  top: 50%;
+  transition: top 0.4s ease, opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.content-two .cart-btn {
+  text-align: center;
+  width: 90%;
+  height: 90%;
+  color: black;
+  background: white;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+  position: absolute;
+  visibility: hidden;
+  opacity: 0;
+  transition: top 0.4s ease, opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.content-two .cart-btn i {
+  position: relative;
+  display: inline-block;
+  top: 51%;
+  font-size: 1.2rem;
+  opacity: 0.6s;
+}
+/* Underline effect on Add to Cart text */
+.content-two .cart-btn h1 {
+  position: relative;
+  display: inline-block;
+  top: 50%;
+}
+
+.content-two .cart-btn h1::after {
+  content: "";
+  position: absolute;
+  left: 0%;
+  bottom: -2px;
+  height: 2px;
+  width: 100%;
+  background-color: black;
+  transition: width 0.4s ease;
+}
+
+/* Remove underline on hover */
+.content-two .cart-btn h1:hover::after {
+  width: 0;
+}
+
+/* -------------------------------Responsive------------------------------ */
+/* Mobile */
+@media (max-width: 600px) {
+  .card-heading {
+    padding: 2vw;
+  }
+
+  h6 {
+    text-align: center;
+    font-size: 3.1rem;
+    font-weight: 500;
+    padding-bottom: 1rem;
+  }
+
+  .card-container {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 3px 3px;
+  }
+
+  .card {
+    width: 100%;
+    padding: 2rem;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .cart-btn {
+    color: white;
+    background: black;
+    width: 50vw;
+    height: 7vh;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+    position: absolute;
+    visibility: hidden;
+    opacity: 0;
+    transition: top 0.4s ease, opacity 0.4s ease, visibility 0.4s ease;
+  }
+}
+
+/* Tablet  */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .content-one .card-container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 140px 25px;
+  }
+
+  .content-one .card {
+    width: 240px;
+    height: 310px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .content-one .cart-btn {
+    width: 80%;
+    text-align: center;
+    color: white;
+    background: black;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+    position: absolute;
+    visibility: hidden;
+    opacity: 0;
+    transition: top 0.4s ease, opacity 0.4s ease, visibility 0.4s ease;
+  }
+}
+
+/* --------------Component Two Responsivness---------------------- */
+/* Mobile */
+@media (max-width: 600px) {
+  .card-two-container .card {
+    width: 100%;
+    padding: 0px 15px;
+  }
+}
+/* Tablet */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .card-two-container {
+    padding-top: 120px;
+  }
+  .card-two-container .card {
+    width: 240px;
+    height: 350px;
+    padding-bottom: 20px;
+  }
+
+  .content-two .card-img {
+    /* position: relative; */
+    width: 100%;
+    height: 100%;
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+      font-family: "DM Sans", sans-serif;
+    }
+    main {
+      /* background: lightblue; */
+    }
+    .content-one {
+      padding-top: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    h5 {
+      text-align: center;
+      font-size: 1rem;
+      font-weight: 500;
+      padding-bottom: 0.5rem;
+    }
+
+    h6 {
+      text-align: center;
+      font-size: 3.1rem;
+      font-weight: 500;
+      padding-bottom: 3rem;
+    }
+    .card-container {
+      /* width: 100%; */
+      width: calc(100% - 33.5rem);
+      height: auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 100px 30px;
+
+      /* background: blue; */
+    }
+
+    .card {
+      /* background: red; */
+      width: 410px;
+      height: 500px;
+      /* padding: 2rem; */
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .card:hover .cart-btn {
+      visibility: visible;
+      opacity: 1;
+      top: 50%;
+      transition: top 0.4s ease, opacity 0.4s ease, visibility 0.4s ease;
+    }
+    /* image hover effect */
+    .content-one .card:hover .card-img img {
+      transform: scale(1.1);
+      transition: transform 0.4s ease;
+    }
+
+    .card-img {
+      position: relative;
+      overflow: hidden;
+    }
+    .card-img img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+
+      transition: transform 0.4s ease;
+    }
+
+    .cart-btn {
+      color: white;
+      background: black;
+      padding: 20px 50px;
+      transform: translate(-50%, -50%);
+      left: 50%;
+      top: 52%;
+      position: absolute;
+      visibility: hidden;
+      opacity: 0;
+      transition: top 0.2s ease, opacity 0.2s ease, visibility 0.2s ease;
+    }
+
+    .cart-btn h1 {
+      font-size: 1rem;
+      font-weight: 500;
+    }
+
+    .card-title {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      padding-top: 20px;
+    }
+    .card-title h1 {
+      font-size: 1.2rem;
+      font-weight: 500;
+    }
+    .card-category {
+      width: 100%;
+      opacity: 0.3;
+    }
+    .card-category h1 {
+      font-size: 1rem;
+      font-weight: 400;
+    }
+
+    /* -----------------------------------Component two css---------------------- */
+    .content-two {
+      width: 100%;
+    }
+
+    .card-two-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 0px 25px;
+      margin-top: 80px;
+    }
+
+    .card-two-container .card {
+      width: 290px;
+    }
+
+    .content-two .card-img img {
+      position: relative;
+    }
+
+    .content-two .card:hover .cart-btn {
+      visibility: visible;
+      opacity: 1;
+      top: 50%;
+      transition: top 0.4s ease, opacity 0.4s ease, visibility 0.4s ease;
+    }
+
+    .content-two .cart-btn {
+      text-align: center;
+      width: 90%;
+      height: 90%;
+      color: black;
+      background: white;
+      transform: translate(-50%, -50%);
+      left: 50%;
+      top: 50%;
+      position: absolute;
+      visibility: hidden;
+      opacity: 0;
+      transition: top 0.4s ease, opacity 0.4s ease, visibility 0.4s ease;
+    }
+
+    .content-two .cart-btn i {
+      position: relative;
+      display: inline-block;
+      top: 51%;
+      font-size: 1.2rem;
+      opacity: 0.6s;
+    }
+    /* Underline effect on Add to Cart text */
+    .content-two .cart-btn h1 {
+      position: relative;
+      display: inline-block;
+      top: 50%;
+    }
+
+    .content-two .cart-btn h1::after {
+      content: "";
+      position: absolute;
+      left: 0%;
+      bottom: -2px;
+      height: 2px;
+      width: 100%;
+      background-color: black;
+      transition: width 0.4s ease;
+    }
+
+    /* Remove underline on hover */
+    .content-two .cart-btn h1:hover::after {
+      width: 0;
+    }
+
+    /* -------------------------------Responsive------------------------------ */
+    /* Mobile */
+    @media (max-width: 600px) {
+      .card-heading {
+        padding: 2vw;
+      }
+
+      h6 {
+        text-align: center;
+        font-size: 3.1rem;
+        font-weight: 500;
+        padding-bottom: 1rem;
+      }
+
+      .card-container {
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 3px 3px;
+      }
+
+      .card {
+        width: 100%;
+        padding: 2rem;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .cart-btn {
+        color: white;
+        background: black;
+        width: 50vw;
+        height: 7vh;
+        transform: translate(-50%, -50%);
+        left: 50%;
+        top: 50%;
+        position: absolute;
+        visibility: hidden;
+        opacity: 0;
+        transition: top 0.4s ease, opacity 0.4s ease, visibility 0.4s ease;
+      }
+    }
+
+    /* Tablet  */
+    @media (min-width: 601px) and (max-width: 1024px) {
+      .content-one .card-container {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 140px 25px;
+      }
+
+      .content-one .card {
+        width: 240px;
+        height: 310px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .content-one .cart-btn {
+        width: 80%;
+        text-align: center;
+        color: white;
+        background: black;
+        padding: 10px 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transform: translate(-50%, -50%);
+        left: 50%;
+        top: 50%;
+        position: absolute;
+        visibility: hidden;
+        opacity: 0;
+        transition: top 0.4s ease, opacity 0.4s ease, visibility 0.4s ease;
+      }
+    }
+
+    /* --------------Component Two Responsivness---------------------- */
+    /* Mobile */
+    @media (max-width: 600px) {
+      .card-two-container .card {
+        width: 100%;
+        padding: 0px 15px;
+      }
+    }
+    /* Tablet */
+    @media (min-width: 601px) and (max-width: 1024px) {
+      .card-two-container {
+        padding-top: 120px;
+      }
+      .card-two-container .card {
+        width: 240px;
+        height: 350px;
+        padding-bottom: 20px;
+      }
+
+      .content-two .card-img {
+        /* position: relative; */
+        width: 100%;
+        height: 100%;
+      }
+
+      .content-two .card-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Maintain cover and fill the container */
+        transition: transform 0.4s ease;
+      }
+    }
+  }
+
+  .content-two .card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Maintain cover and fill the container */
+    transition: transform 0.4s ease;
+  }
+}
+
+/* Component Three CSS--------------------------- */
 
 .content-three {
   width: 100%;
@@ -695,8 +1319,18 @@ h6 {
 .content-three .add-c:hover::after {
   width: 0;
 }
-
-/* Responsive */
+.card-three-title {
+  padding-top: 20px;
+}
+.card-three-title h3 {
+  font-size: 1.25;
+  font-weight: 500;
+}
+.card-three-title h4 {
+  font-size: 1rem;
+  font-weight: 500;
+}
+/* Responsive Component three*/
 /* Mobile */
 @media (max-width: 768px) {
   .content-three .card-container-t {
