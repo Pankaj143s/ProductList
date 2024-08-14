@@ -280,6 +280,45 @@
     transition: top 0.4s ease, opacity 0.4s ease, visibility 0.4s ease;
   }
 }
+
+/* Laptop / Monitor  */
+@media (min-width: 1025px) {
+  .card-container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 100px 25px;
+  }
+  .card {
+    width: 350px;
+    overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .cart-btn {
+    width: 60%;
+    text-align: center;
+    color: white;
+    background: black;
+    padding: 20 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 52%;
+    position: absolute;
+    visibility: hidden;
+    opacity: 0;
+    transition: top 0.2s ease, opacity 0.2s ease, visibility 0.2s ease;
+  }
+}
+
 /* =============== Component Two CSS ========== */
 #content-two .card-two-container {
   display: flex;
