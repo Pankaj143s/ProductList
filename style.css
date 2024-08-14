@@ -283,7 +283,7 @@
 
 /* Laptop / Monitor  */
 @media (min-width: 1025px) {
-  .card-container {
+  #content-one .card-container {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
@@ -291,7 +291,7 @@
     align-items: center;
     gap: 100px 25px;
   }
-  .card {
+  #content-one .card {
     width: 350px;
     overflow: hidden;
     display: flex;
@@ -300,7 +300,7 @@
     align-items: center;
     justify-content: center;
   }
-  .cart-btn {
+  #content-one .cart-btn {
     width: 60%;
     text-align: center;
     color: white;
