@@ -5,6 +5,82 @@
   font-family: "DM Sans", sans-serif;
 }
 
+/* ------------------------------Sidebar CSS Starts---------------------------- */
+#sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 5%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background: rgba(221, 237, 255, 0.5);
+  backdrop-filter: blur(2px);
+  border-right: 1px solid rgba(253, 237, 237, 0.4);
+  transition: width 0.5s ease;
+  z-index: 5;
+}
+#sidebar:hover {
+  width: 260px;
+  opacity: 1;
+}
+
+#sidebar .logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 10px;
+}
+
+#sidebar .logo h2 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-left: 15px;
+  display: none;
+}
+
+#sidebar:hover .logo h2 {
+  display: block;
+}
+
+#sidebar:hover li a {
+  display: block;
+}
+
+#sidebar .logo img {
+  width: 40px;
+}
+
+#sidebar .links {
+  list-style: none;
+  margin-top: 20px;
+}
+
+#sidebar li {
+  display: flex;
+  align-items: center;
+}
+
+#sidebar li a {
+  color: black;
+  padding: 10px;
+  white-space: nowrap;
+  text-decoration: none;
+  display: none;
+}
+#sidebar li:hover {
+  background: white;
+  border-radius: 1px;
+  cursor: pointer;
+}
+
+#sidebar li span {
+  font-size: 2rem;
+  padding: 10px 10px;
+}
+
+/* ------------------------------Sidebar CSS End---------------------------- */
 #content-one {
   padding-top: 2rem;
   display: flex;
