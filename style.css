@@ -440,6 +440,14 @@
     padding-bottom: 20px;
   }
 }
+/* ---------------- Laptop / Media ------------------*/
+@media (min-width: 1025px) {
+  #content-two .card-two-container .card {
+    width: 200px;
+
+    padding-bottom: 20px;
+  }
+}
 
 /* =============== Component Three CSS ========== */
 #content-three {
