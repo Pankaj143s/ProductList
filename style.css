@@ -81,6 +81,7 @@
 }
 
 /* ------------------------------Sidebar CSS End---------------------------- */
+/* =============== Component One CSS =============== */
 #content-one {
   padding-top: 2rem;
   display: flex;
@@ -91,13 +92,13 @@
 }
 #content-one .card-heading {
   padding-bottom: 50px;
+  text-align: center;
 }
 
 #content-one .card-heading h5 {
   font-size: 1rem;
   font-weight: 500;
   padding: 10px 0px;
-  text-align: center;
 }
 
 #content-one .card-heading h6 {
@@ -107,7 +108,6 @@
   letter-spacing: 2px;
 }
 #content-one .card-container {
-  /* width: 100%; */
   width: calc(100% - 33.5rem);
   height: auto;
   display: flex;
@@ -115,17 +115,15 @@
   justify-content: center;
   align-items: center;
   gap: 100px 30px;
-
-  /* background: blue; */
 }
 
 #content-one .card {
-  /* background: red; */
   width: 410px;
   height: 500px;
-  /* padding: 2rem; */
+
   overflow: hidden;
   display: flex;
+  flex-wrap: wrap;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -162,8 +160,12 @@
   transform: translate(-50%, -50%);
   left: 50%;
   top: 52%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: absolute;
   visibility: hidden;
+  cursor: pointer;
   opacity: 0;
   transition: top 0.2s ease, opacity 0.2s ease, visibility 0.2s ease;
 }
@@ -192,134 +194,82 @@
   font-weight: 400;
 }
 
-/* ------------------Responsive------------------- */
-/* ------------------Mobile------------------------ */
-@media (max-width: 600px) {
-  #content-one .card-heading {
-    padding: 2vw;
-  }
+/* ------------------Responsive Content One------------------- */
+/* ----- Mobile ----- */
 
-  #content-one h6 {
-    text-align: center;
-    font-size: 3.1rem;
-    font-weight: 500;
-    padding-bottom: 1rem;
-  }
-
+@media (max-width: 680.98px) {
   #content-one .card-container {
     width: 100%;
+  }
+
+  #content-one .card {
+    width: 85%;
     height: auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 3px 3px;
-  }
-
-  #content-one .card {
-    width: 100%;
-    padding: 2rem;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-
-  #content-one .cart-btn {
-    color: white;
-    background: black;
-    width: 50vw;
-    height: 7vh;
-    transform: translate(-50%, -50%);
-    left: 50%;
-    top: 50%;
-    position: absolute;
-    visibility: hidden;
-    opacity: 0;
-    transition: top 0.4s ease, opacity 0.4s ease, visibility 0.4s ease;
   }
 }
-
-/* -----------------Tablet----------------------  */
-@media (min-width: 601px) and (max-width: 1024px) {
+/* ----- Tablet ----- */
+@media (min-width: 681px) and (max-width: 768.98px) {
   #content-one .card-container {
     width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 140px 25px;
   }
-
   #content-one .card {
-    width: 240px;
-    height: 310px;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-
-  #content-one .cart-btn {
-    width: 80%;
-    text-align: center;
-    color: white;
-    background: black;
-    padding: 10px 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transform: translate(-50%, -50%);
-    left: 50%;
-    top: 50%;
-    position: absolute;
-    visibility: hidden;
-    opacity: 0;
-    transition: top 0.4s ease, opacity 0.4s ease, visibility 0.4s ease;
+    width: 40%;
+    height: auto;
   }
 }
-
-/* Laptop / Monitor  */
-@media (min-width: 1025px) {
+/* ----- Small Laptop ----- */
+@media (min-width: 769px) and (max-width: 1024.98px) {
   #content-one .card-container {
     width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 100px 25px;
   }
   #content-one .card {
-    width: 350px;
-    overflow: hidden;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    width: 23%;
+    height: auto;
   }
   #content-one .cart-btn {
     width: 60%;
-    text-align: center;
-    color: white;
-    background: black;
-    padding: 20 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transform: translate(-50%, -50%);
-    left: 50%;
-    top: 52%;
-    position: absolute;
-    visibility: hidden;
-    opacity: 0;
-    transition: top 0.2s ease, opacity 0.2s ease, visibility 0.2s ease;
+    padding: 10px 0;
+  }
+}
+/* ----- Laptop ----- */
+@media (min-width: 1025px) and (max-width: 1199.98px) {
+  #content-one .card-container {
+    width: 100%;
+  }
+  #content-one .card {
+    width: 29%;
+    height: auto;
+  }
+  #content-one .cart-btn {
+    width: 60%;
+  }
+}
+/* ----- Monitor ----- */
+@media (min-width: 1200px) and (max-width: 1439.98px) {
+  #content-one .card-container {
+    width: 100%;
+    padding: 0% 7%;
+  }
+  #content-one .card {
+    width: 30%;
+  }
+}
+/* ----- Large Monitors ----- */
+@media (min-width: 1440px) {
+  #content-one .card-container {
+    width: 100%;
+    padding: 0% 13%;
+  }
+  #content-one .card {
+    width: 29%;
+    height: auto;
+  }
+  #content-one .cart-btn {
+    width: 50%;
   }
 }
 
-/* =============== Component Two CSS ========== */
+/* =============== Component Two CSS =============== */
 #content-two .card-two-container {
   display: flex;
   flex-wrap: wrap;
@@ -419,37 +369,91 @@
   width: 0;
 }
 
-/* --------------Component Two Responsivness---------------------- */
-/*------------------- Mobile ------------*/
-
-@media (max-width: 600px) {
-  #content-two .card-two-container .card {
-    width: 100%;
-    padding: 0px 15px;
-  }
-}
-/* -----------------------Tablet------------- */
-
-@media (min-width: 601px) and (max-width: 1024px) {
+/* ------------------Responsive Content Two------------------- */
+/* ----- Mobile ----- */
+@media (max-width: 680.98px) {
   #content-two .card-two-container {
-    padding-top: 10px;
+    width: 100%;
   }
   #content-two .card-two-container .card {
-    width: 240px;
-    height: 350px;
-    padding-bottom: 20px;
-  }
-}
-/* ---------------- Laptop / Media ------------------*/
-@media (min-width: 1025px) {
-  #content-two .card-two-container .card {
-    width: 200px;
-
-    padding-bottom: 20px;
+    width: 95%;
+    height: auto;
   }
 }
 
-/* =============== Component Three CSS ========== */
+/* ----- Tablet ----- */
+@media (min-width: 681px) and (max-width: 768.98px) {
+  #content-two .card-two-container {
+    width: 100%;
+  }
+  #content-two .card-two-container .card {
+    width: 45%;
+    height: auto;
+  }
+}
+
+/* ----- Small Laptop ----- */
+@media (min-width: 769px) and (max-width: 1024.98px) {
+  #content-two .card-two-container {
+    width: 100%;
+  }
+  #content-two .card-two-container .card {
+    width: 29%;
+    height: auto;
+  }
+}
+
+/* ----- Laptop ----- */
+@media (min-width: 1025px) and (max-width: 1199.98px) {
+  #content-two .card-two-container {
+    align-items: baseline;
+  }
+  #content-two .card-two-container .card {
+    width: 14%;
+    height: auto;
+  }
+}
+
+/* ----- Monitor ----- */
+@media (min-width: 1200px) and (max-width: 1439.98px) {
+  #content-two .card-two-container {
+    gap: 25px 18px;
+  }
+  #content-two .card-two-container .card {
+    width: 15%;
+    height: auto;
+  }
+}
+
+/* ----- Large Monitors ----- */
+@media (min-width: 1440px) {
+  #content-two .card-two-container {
+    gap: 25px 18px;
+  }
+  #content-two .card-two-container .card {
+    width: 15%;
+    height: auto;
+  }
+}
+
+/* =============== Component Three CSS =============== */
+#content-three .card-container-t {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 30px 10px;
+  width: 100%;
+}
+#content-three .card-t {
+  position: relative;
+  width: 310px;
+  height: auto;
+  overflow: hidden;
+}
+
 #content-three {
   display: flex;
   flex-direction: column;
@@ -469,23 +473,6 @@
   font-weight: 500;
   padding: 10px 0px;
   letter-spacing: 2px;
-}
-
-#content-three .card-container-t {
-  padding-top: 50px;
-  padding-bottom: 50px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  gap: 30px 10px;
-}
-
-#content-three .card-t {
-  position: relative;
-  width: 310px;
-  height: auto;
-  overflow: hidden;
 }
 
 #content-three .card-image {
@@ -549,189 +536,71 @@
   font-size: 1rem;
   font-weight: 500;
 }
-/* Responsive Component three*/
-/* Mobile */
-@media (max-width: 768px) {
-  #content-three .card-container-t {
-    gap: 50px;
-  }
-
-  #content-three .card {
-    width: 330px;
-  }
-  #content-three .card-three-title {
-    padding: 30px 0px;
-  }
-}
-
-/* Tablet */
-@media (max-width: 1024px) and (min-width: 769px) {
-  #content-three {
-    padding-top: 120px;
-  }
-
+/* ------------------Responsive Content Three------------------- */
+/* ----- Mobile ----- */
+@media (max-width: 680.98px) {
   #content-three .card-t {
-    width: 380px;
+    width: 80%;
   }
 }
 
-/* ========== Component Four CSS(named as content 4 in html) ========== */
-#content-four {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding-top: 150px;
+/* ----- Tablet ----- */
+@media (min-width: 681px) and (max-width: 768.98px) {
+  #content-three .card-t {
+    width: 40%;
+  }
 }
 
-#content-four .card-heading h6 {
-  font-size: 1rem;
-  font-weight: 500;
-  padding: 10px 0px;
+/* ----- Small Laptop ----- */
+@media (min-width: 769px) and (max-width: 1024.98px) {
+  #content-three .card-t {
+    width: 40%;
+  }
 }
 
-#content-four .card-heading h5 {
-  font-size: 3.1rem;
-  font-weight: 500;
-  padding: 10px 0px;
-  letter-spacing: 2px;
+/* ----- Laptop ----- */
+@media (min-width: 1025px) and (max-width: 1199.98px) {
+  #content-three .card-t {
+    width: 22%;
+  }
 }
+
+/* ----- Monitor ----- */
+@media (min-width: 1200px) and (max-width: 1439.98px) {
+  #content-three .card-t {
+    width: 19%;
+  }
+}
+
+/* ----- Large Monitors ----- */
+@media (min-width: 1440px) {
+  #content-three .card-t {
+    width: 19%;
+  }
+}
+
+/* =============== Component Four CSS =============== */
 
 #content-four .card-container {
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-  padding: 20px;
-  max-width: 1200px;
-  width: 100%;
+  padding-top: 7%;
 }
 
 #content-four .card {
-  overflow: hidden;
-  width: calc(25% - 20px);
-  min-width: 250px;
-  max-width: 300px;
-  position: relative;
-}
-
-#content-four .card img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-#content-four .card-content {
-  text-align: center;
-  position: relative;
-}
-
-#content-four .card-content h3 {
-  margin: 0;
-  font-size: 1.2rem;
-}
-
-#content-four .price-container {
-  width: 50%;
-  position: relative;
-  overflow: hidden;
-  display: inline-block;
-}
-
-#content-four .price {
-  font-size: 1.25rem;
-  color: #f45b12;
-  display: inline-block;
-  transition: transform 0.5s ease, width 0.5s ease;
-  white-space: nowrap;
-  font-weight: 500;
-}
-
-#content-four .add-to-cart {
-  position: absolute;
-  right: -100px; /* Adjust based on the button width */
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: white;
-  border: none;
-  color: #f45b12;
-  cursor: pointer;
-  transition: right 0.3s ease;
-  white-space: nowrap;
-  font-size: 1rem;
-  font-weight: 500;
-  text-decoration: none;
-}
-
-#content-four .add-to-cart::before {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 1px; /* Underline thickness */
-  bottom: -2px; /* Positioning the underline */
-  right: 0;
-  background-color: #f45b12;
-  transition: transform 0.3s ease-in-out;
-  transform: scaleX(1);
-  transform-origin: left;
-}
-
-#content-four .add-to-cart:hover::before {
-  transform: scaleX(0);
-  transform-origin: left;
-}
-
-#content-four .card:hover .price {
-  transform: translateX(-100px);
-}
-
-#content-four .card:hover .add-to-cart {
-  right: 15px; /* Adjust to align with the price */
-}
-/* -----------------Responsive------------ */
-@media (max-width: 768px) {
-  #content-four .card {
-    width: calc(50% - 20px);
-  }
-}
-
-@media (max-width: 480px) {
-  #content-four {
-    padding-top: 70px;
-  }
-  #content-four .card {
-    width: 100%;
-  }
-}
-
-/* Component Five CSS(named as content 4 in section) */
-
-#content-five {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%; /* Ensure full width */
-  padding-top: 150px;
-}
-
-#content-five .card-container {
-  display: flex;
-}
-
-#content-five .card {
   width: 25%;
   position: relative;
   overflow: hidden;
 }
 
-#content-five .card-image {
+#content-four .card-image {
   width: 100%;
   position: relative;
   overflow: hidden;
 }
 
-#content-five img {
+#content-four img {
   width: 100%;
   height: auto;
   object-fit: cover;
@@ -739,7 +608,7 @@
   display: block;
 }
 
-#content-five .card::before {
+#content-four .card::before {
   content: "";
   position: absolute;
   top: 0;
@@ -752,15 +621,15 @@
   z-index: 1;
 }
 
-#content-five .card:hover::before {
+#content-four .card:hover::before {
   opacity: 1;
 }
 
-#content-five .card:hover img {
+#content-four .card:hover img {
   transform: scale(1.03); /* Zoom the image */
 }
 
-#content-five .card-content {
+#content-four .card-content {
   width: 250px;
   position: relative;
   overflow: hidden;
@@ -776,22 +645,22 @@
   z-index: 2;
 }
 
-#content-five .card:hover .card-content {
+#content-four .card:hover .card-content {
   opacity: 1; /* Show content on hover */
   transform: translate(-50%, -50%); /* Ensure it's centered */
 }
 
-#content-five .card-content h1 {
+#content-four .card-content h1 {
   font-size: 1.25rem;
   font-weight: 500;
   padding: 5px 0;
 }
 
-#content-five .stars {
+#content-four .stars {
   padding-bottom: 10px;
 }
 
-#content-five .card-content .btn {
+#content-four .card-content .btn {
   background-color: white;
   padding: 20px 60px;
   border: none;
@@ -800,11 +669,11 @@
 }
 
 /*  */
-#content-five .card-content .btn-text {
+#content-four .card-content .btn-text {
   font-size: 1rem;
   position: relative;
 }
-#content-five .card-content .btn-text::after {
+#content-four .card-content .btn-text::after {
   content: "";
   position: absolute;
   left: 0;
@@ -816,29 +685,210 @@
   transition: width 0.3s ease;
 }
 
-#content-five .card-content .btn-text:hover::after {
+#content-four .card-content .btn-text:hover::after {
   width: 100%;
 }
 
-/* --------------------- Responsive ------------------------ */
-/* Tablet */
-@media (max-width: 600px) {
-  #content-five .card-container {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  #content-five .card {
+/* ------------------Responsive Content Four------------------- */
+/* ----- Mobile ----- */
+@media (max-width: 680.98px) {
+  #content-four .card {
     width: 100%;
   }
 }
-
-/* Tablet */
-@media (min-width: 601px) and (max-width: 1024px) {
-  #content-five .card-container {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  #content-five .card {
+/* ----- Tablet ----- */
+@media (min-width: 681px) and (max-width: 768.98px) {
+  #content-four .card {
     width: 50%;
+  }
+}
+
+/* ----- Small Laptop ----- */
+@media (min-width: 769px) and (max-width: 1024.98px) {
+  #content-four .card {
+    width: 50%;
+  }
+}
+
+/* ----- Laptop ----- */
+@media (min-width: 1025px) and (max-width: 1199.98px) {
+  #content-four .card {
+    width: 25%;
+  }
+}
+
+/* ----- Monitor ----- */
+@media (min-width: 1200px) and (max-width: 1439.98px) {
+  #content-four .card {
+    width: 25%;
+  }
+}
+
+/* ----- Large Monitors ----- */
+@media (min-width: 1440px) {
+  #content-four .card {
+    width: 25%;
+  }
+}
+
+/* =============== Component Five CSS =============== */
+
+#content-five {
+  text-align: center;
+  margin-top: 10%;
+}
+
+#content-five .card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+  width: 100%;
+}
+#content-five .card {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+}
+
+#content-five .card-heading h6 {
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 2% 0%;
+}
+
+#content-five .card-heading h5 {
+  font-size: 3rem;
+  font-weight: 500;
+  letter-spacing: 3px;
+  padding: 3% 0%;
+}
+
+#content-five .card img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+#content-five .card-content {
+  text-align: center;
+  position: relative;
+}
+
+#content-five .card-content h3 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+#content-five .price-container {
+  width: 50%;
+  position: relative;
+  text-align: center;
+  overflow: hidden;
+  display: inline-block;
+}
+
+#content-five .price {
+  font-size: 1.25rem;
+  color: #f45b12;
+  display: inline-block;
+  transition: transform 0.5s ease, width 0.5s ease;
+  white-space: nowrap;
+  font-weight: 500;
+}
+
+#content-five .add-to-cart {
+  position: absolute;
+  right: -100px; /* Adjust based on the button width */
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: white;
+  border: none;
+  color: #f45b12;
+  cursor: pointer;
+  transition: right 0.5s ease;
+  white-space: nowrap;
+  font-size: 1rem;
+  text-decoration: none;
+}
+
+#content-five .add-to-cart::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 1px; /* Underline thickness */
+  bottom: -2px; /* Positioning the underline */
+  right: 0;
+  background-color: #f45b12;
+  transition: transform 0.5s ease-in-out;
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+#content-five .add-to-cart:hover::before {
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+#content-five .card:hover .price {
+  transform: translateX(-150px);
+}
+
+#content-five .card:hover .add-to-cart {
+  right: 15%; /* Adjust to align with the price */
+}
+/* ------------------Responsive Content Five------------------- */
+/* ----- Mobile ----- */
+@media (max-width: 680.98px) {
+  #content-five .card {
+    width: 90%;
+  }
+}
+
+/* ----- Tablet ----- */
+@media (min-width: 681px) and (max-width: 768.98px) {
+  #content-five .card {
+    width: 45%;
+  }
+}
+
+/* ----- Small Laptop ----- */
+@media (min-width: 769px) and (max-width: 1024.98px) {
+  #content-five .card {
+    width: 45%;
+  }
+  #content-five .card:hover .add-to-cart {
+    right: 23%;
+  }
+}
+
+/* ----- Laptop ----- */
+@media (min-width: 1025px) and (max-width: 1199.98px) {
+  #content-five .card {
+    width: 22%;
+  }
+  #content-five .card:hover .add-to-cart {
+    right: 12%;
+  }
+}
+
+/* ----- Monitor ----- */
+@media (min-width: 1200px) and (max-width: 1439.98px) {
+  #content-five .card {
+    width: 22%;
+  }
+  #content-five .card:hover .add-to-cart {
+    right: 19%;
+  }
+}
+
+/* ----- Large Monitors ----- */
+@media (min-width: 1440px) {
+  #content-five .card {
+    width: 22%;
+  }
+  #content-five .card:hover .add-to-cart {
+    right: 30%;
   }
 }
