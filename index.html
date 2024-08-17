@@ -4,11 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style.css" />
     <!-- Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
       rel="stylesheet"
     />
     <!-- icon cdn -->
@@ -16,13 +17,66 @@
       href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
       rel="stylesheet"
     />
+    <script type="module">
+      import productList from "./productList.js";
+      window.productList = productList;
+    </script>
+    <script>
+      let SelectedProducts =
+        JSON.parse(localStorage.getItem("SelectedProducts")) || [];
+
+      function AddToCart(index, button) {
+        console.log(SelectedProducts);
+
+        // Add the passed value to the global array
+        SelectedProducts.push(index);
+
+        // Save to localStorage
+        localStorage.setItem(
+          "SelectedProducts",
+          JSON.stringify(SelectedProducts)
+        );
+
+        // Update the button to "Show Cart"
+        button.innerHTML = "<h1>Show Cart</h1>";
+        button.onclick = function () {
+          window.location.href = "cart.html";
+        };
+
+        // Show alert and update product count
+        window.alert(
+          "Product Added to cart. Total Products: " + SelectedProducts.length
+        );
+        updateProductCount();
+      }
+
+      function updateProductCount() {
+        const productCountElement = document.getElementById("product-count");
+
+        if (productCountElement) {
+          productCountElement.textContent = SelectedProducts.length;
+        } else {
+          console.error('Element with ID "product-count" not found.');
+        }
+      }
+
+      window.onload = updateProductCount;
+
+      function ClearCart() {
+        localStorage.clear();
+        SelectedProducts = [];
+        window.alert("Cart is Cleared");
+        updateProductCount();
+      }
+    </script>
     <title>Document</title>
   </head>
+
   <body>
     <aside id="sidebar">
       <div class="sidebar-container">
         <div class="logo">
-          <img src="logo.jpeg" alt="" />
+          <img src="images/w-square.png" alt="" />
           <h2 class="sidebar-title">Sidebar Title</h2>
         </div>
         <ul class="links">
@@ -39,12 +93,14 @@
           </li>
           <li>
             <span><i class="ri-file-add-fill"></i></span
-            ><a href="">Add-to-cart-button</a>
+            ><a href="cart.html">Add-to-cart-button</a>
           </li>
-          <li>
+          <li onclick="window.location.href = 'cart.html';">
             <span><i class="ri-shopping-cart-fill"></i></span
-            ><a href="">Cart</a>
+            ><a href="#" onclick="window.location.href = 'cart.html';">Cart</a>
           </li>
+          <h3 id="product-count"></h3>
+          <button onclick="ClearCart()">Clear Cart</button>
         </ul>
       </div>
     </aside>
@@ -56,470 +112,129 @@
           <h5>Two layout types</h5>
           <h6>Choose your style</h6>
         </div>
-        <div class="card-container">
-          <!-- card one -->
-          <div class="card">
-            <div class="card-img">
-              <img
-                src="https://qodeinteractive.com/qi-addons-for-elementor/wp-content/uploads/2021/02/shop-img-1.jpg"
-                alt=""
-              />
-              <div class="cart-btn"><h1>Add to cart</h1></div>
-            </div>
-            <div class="card-title">
-              <h1>Yellow Book</h1>
-              <h1>$25</h1>
-            </div>
-            <div class="card-category"><h1>Necessity</h1></div>
-          </div>
-          <!-- card two -->
-          <div class="card">
-            <div class="card-img">
-              <img
-                src="https://qodeinteractive.com/qi-addons-for-elementor/wp-content/uploads/2021/02/shop-img-2.jpg"
-                alt=""
-              />
-              <div class="cart-btn"><h1>Add to cart</h1></div>
-            </div>
-
-            <div class="card-title">
-              <h1>Black bag</h1>
-              <h1>$30</h1>
-            </div>
-            <div class="card-category"><h1>Necessity</h1></div>
-          </div>
-          <!-- card three -->
-          <div class="card">
-            <div class="card-img">
-              <img
-                src="https://qodeinteractive.com/qi-addons-for-elementor/wp-content/uploads/2021/02/shop-img-3.jpg"
-                alt=""
-              />
-              <div class="cart-btn"><h1>Add to cart</h1></div>
-            </div>
-            <div class="card-title">
-              <h1>Puma shoes</h1>
-              <h1>$45</h1>
-            </div>
-            <div class="card-category"><h1>Necessity</h1></div>
-          </div>
-          <!-- card four -->
-          <div class="card">
-            <div class="card-img">
-              <img
-                src="https://qodeinteractive.com/qi-addons-for-elementor/wp-content/uploads/2021/02/shop-img-4.jpg"
-                alt=""
-              />
-              <div class="cart-btn"><h1>Add to cart</h1></div>
-            </div>
-            <div class="card-title">
-              <h1>Woman bag</h1>
-              <h1>$50</h1>
-            </div>
-            <div class="card-category"><h1>Necessity</h1></div>
-          </div>
-          <!-- card five -->
-          <div class="card">
-            <div class="card-img">
-              <img
-                src="https://qodeinteractive.com/qi-addons-for-elementor/wp-content/uploads/2021/02/shop-img-5.jpg"
-                alt=""
-              />
-              <div class="cart-btn"><h1>Add to cart</h1></div>
-            </div>
-
-            <div class="card-title">
-              <h1>Fancy hat</h1>
-              <h1>$35</h1>
-            </div>
-            <div class="card-category"><h1>Necessity</h1></div>
-          </div>
-          <!-- card six -->
-          <div class="card">
-            <div class="card-img">
-              <img
-                src="https://qodeinteractive.com/qi-addons-for-elementor/wp-content/uploads/2021/02/shop-img-6.jpg"
-                alt=""
-              />
-              <div class="cart-btn"><h1>Add to cart</h1></div>
-            </div>
-            <div class="card-title">
-              <h1>Coffee cup</h1>
-              <h1>$20</h1>
-            </div>
-            <div class="card-category"><h1>Necessity</h1></div>
-          </div>
-          <!-- card seven -->
+        <div class="card-container" id="card-container">
+          <script type="module">
+            const Products = window.productList.slice(0, 6);
+            const cardContainer = document.getElementById("card-container");
+            Products.forEach((product, index) => {
+              const card = document.createElement("div");
+              card.className = "card";
+              card.innerHTML = `
+                <div class="card-img">
+                    <img src="${product.img}" alt="${product.title}" />
+                    <a href="#" class="cart-btn" onclick="AddToCart(${index}, this); return false;"><h1>Add to cart</h1></a>
+                </div>
+                <div class="card-title">
+                    <h1>${product.title}</h1>
+                    <h1>$${product.price}</h1>
+                </div>
+                <div class="card-category"><h1>${product.category}</h1></div>
+            `;
+              cardContainer.appendChild(card);
+            });
+          </script>
         </div>
       </section>
+
       <!-- -------------------- component-two -------------------- -->
       <section id="content-two">
-        <div class="card-two-container">
-          <!-- Card one -->
-          <div class="card">
-            <div class="card-img">
-              <img
-                src="https://qodeinteractive.com/qi-addons-for-elementor/wp-content/uploads/2021/02/shop-img-7.jpg"
-                alt=""
-              />
-              <div class="cart-btn">
-                <i class="ri-calendar-line"></i>
-                <h1>Add to cart</h1>
-              </div>
-            </div>
-            <div class="card-title">
-              <h1>Desk lamp</h1>
-              <h1>$50</h1>
-            </div>
-            <div class="card-category">
-              <h1>Design</h1>
-            </div>
-          </div>
-          <!-- Card two -->
-          <div class="card">
-            <div class="card-img">
-              <img
-                src="https://qodeinteractive.com/qi-addons-for-elementor/wp-content/uploads/2021/02/shop-img8.jpg"
-                alt=""
-              />
-              <div class="cart-btn">
-                <i class="ri-calendar-line"></i>
-                <h1>Add to cart</h1>
-              </div>
-            </div>
-            <div class="card-title">
-              <h1>White T-shirt</h1>
-              <h1>$26</h1>
-            </div>
-            <div class="card-category"><h1>Design</h1></div>
-          </div>
-          <!-- Card three -->
-          <div class="card">
-            <div class="card-img">
-              <img
-                src="https://qodeinteractive.com/qi-addons-for-elementor/wp-content/uploads/2021/02/shop-img-9.jpg"
-                alt=""
-              />
-              <div class="cart-btn">
-                <i class="ri-calendar-line"></i>
-                <h1>Add to cart</h1>
-              </div>
-            </div>
-            <div class="card-title">
-              <h1>Black bottle</h1>
-              <h1>$30</h1>
-            </div>
-            <div class="card-category"><h1>Design</h1></div>
-          </div>
-          <!-- Card four -->
-          <div class="card">
-            <div class="card-img">
-              <img
-                src="https://qodeinteractive.com/qi-addons-for-elementor/wp-content/uploads/2021/02/shop-img-10.jpg"
-                alt=""
-              />
-              <div class="cart-btn">
-                <i class="ri-calendar-line"></i>
-                <h1>Add to cart</h1>
-              </div>
-            </div>
-            <div class="card-title">
-              <h1>Warm blanket</h1>
-              <h1>$40</h1>
-            </div>
-            <div class="card-category"><h1>Design</h1></div>
-          </div>
-          <!-- Card five -->
-          <div class="card">
-            <div class="card-img">
-              <img
-                src="https://qodeinteractive.com/qi-addons-for-elementor/wp-content/uploads/2021/02/shop-img-11.jpg"
-                alt=""
-              />
-              <div class="cart-btn">
-                <i class="ri-calendar-line"></i>
-                <h1>Add to cart</h1>
-              </div>
-            </div>
-            <div class="card-title">
-              <h1>Cool backpack</h1>
-              <h1>$55</h1>
-            </div>
-            <div class="card-category"><h1>Design</h1></div>
-          </div>
-          <!-- Card six -->
-          <div class="card">
-            <div class="card-img">
-              <img
-                src="https://qodeinteractive.com/qi-addons-for-elementor/wp-content/uploads/2021/02/shop-img-12.jpg"
-                alt=""
-              />
-              <div class="cart-btn">
-                <i class="ri-calendar-line"></i>
-                <h1>Add to cart</h1>
-              </div>
-            </div>
-            <div class="card-title">
-              <h1>Tea cup</h1>
-              <h1>$35</h1>
-            </div>
-            <div class="card-category"><h1>Design</h1></div>
-          </div>
+        <div class="card-two-container" id="card-two-container">
+          <script type="module">
+            const Products2 = window.productList.slice(6, 13);
+            const cardContainer2 =
+              document.getElementById("card-two-container");
+            Products2.forEach((product, index) => {
+              const card = document.createElement("div");
+              card.className = "card";
+              card.innerHTML = `
+                <div class="card-img">
+                    <img src="${product.img}" alt="${product.title}" />
+                    <div class="cart-btn">
+                      <i class="ri-calendar-line"></i>
+                      <a href="#"  onclick="AddToCart(${
+                        index + 6
+                      }, this); return false;"><h1>Add to cart</h1></a>
+                    </div>
+                </div>
+                <div class="card-title">
+                    <h1>${product.title}</h1>
+                    <h1>$${product.price}</h1>
+                </div>
+                <div class="card-category"><h1>${product.category}</h1></div>
+            `;
+              cardContainer2.appendChild(card);
+            });
+          </script>
         </div>
       </section>
+
       <!-- -------------------- component-three -------------------- -->
       <section id="content-three">
         <div class="card-heading">
           <h6>Adapt list columns for different devices</h6>
           <h5>Responsive Settings</h5>
         </div>
-        <div class="card-container-t">
-          <!-- card one -->
-          <div class="card-t">
-            <div class="card-image">
-              <img
-                src="https://qodeinteractive.com/qi-addons-for-elementor/wp-content/uploads/2021/02/shop-img-13.jpg"
-                alt=""
-              />
-            </div>
-            <div class="card-three-title">
-              <h1>Red apron</h1>
-              <h4>$22</h4>
-              <h4 class="add-c">Add to cart</h4>
-            </div>
-          </div>
-          <!-- card two -->
-          <div class="card-t">
-            <div class="card-image">
-              <img
-                src="https://qodeinteractive.com/qi-addons-for-elementor/wp-content/uploads/2021/02/shop-img-14.jpg"
-                alt=""
-              />
-            </div>
-            <div class="card-three-title">
-              <h3>Picture frame</h3>
-              <h4>$35</h4>
-              <h4 class="add-c">Add to cart</h4>
-            </div>
-          </div>
-          <!-- card three -->
-          <div class="card-t">
-            <div class="card-image">
-              <img
-                src="https://qodeinteractive.com/qi-addons-for-elementor/wp-content/uploads/2021/02/shop-img-15.jpg"
-                alt=""
-              />
-            </div>
-            <div class="card-three-title">
-              <h1>Home plant</h1>
-              <h4>$40</h4>
-              <h4 class="add-c">Add to cart</h4>
-            </div>
-          </div>
-          <!-- card four -->
-          <div class="card-t">
-            <div class="card-image">
-              <img
-                src="https://qodeinteractive.com/qi-addons-for-elementor/wp-content/uploads/2021/02/shop-img-16.jpg"
-                alt=""
-              />
-            </div>
-            <div class="card-three-title">
-              <h1>Black umbrella</h1>
-              <h4>$25</h4>
-              <h4 class="add-c">Add to cart</h4>
-            </div>
-          </div>
-        </div>
-      </section>
-      <!-- -------------------- component-four -------------------- -->
-      <section id="content-four">
-        <div class="card-container">
-          <!-- card one -->
-          <div class="card">
-            <div class="card-image">
-              <img
-                src="https://qodeinteractive.com/qi-addons-for-elementor/wp-content/uploads/2021/02/shop-img-17.jpg"
-                alt=""
-              />
-            </div>
-            <div class="card-content">
-              <h1>White blouse</h1>
-              <h1>$55</h1>
-              <div class="stars">
-                <i class="ri-star-s-fill"></i>
-                <i class="ri-star-s-fill"></i>
-                <i class="ri-star-s-fill"></i>
-                <i class="ri-star-s-fill"></i>
-                <i class="ri-star-s-fill"></i>
-              </div>
-              <button class="btn">
-                <span class="btn-text">Add to cart</span>
-              </button>
-            </div>
-          </div>
-          <!-- card two -->
-          <div class="card">
-            <div class="card-image">
-              <img
-                src="https://qodeinteractive.com/qi-addons-for-elementor/wp-content/uploads/2021/02/shop-img-18.jpg"
-                alt=""
-              />
-            </div>
-            <div class="card-content">
-              <h1>Fancy blouse</h1>
-              <h1>$60</h1>
-              <div class="stars">
-                <i class="ri-star-s-fill"></i>
-                <i class="ri-star-s-fill"></i>
-                <i class="ri-star-s-fill"></i>
-                <i class="ri-star-s-fill"></i>
-                <i class="ri-star-s-fill"></i>
-              </div>
-              <button class="btn">
-                <span class="btn-text">Add to cart</span>
-              </button>
-            </div>
-          </div>
-          <!-- card three -->
-          <div class="card">
-            <div class="card-image">
-              <img
-                src="https://qodeinteractive.com/qi-addons-for-elementor/wp-content/uploads/2021/02/shop-img-19.jpg"
-                alt=""
-              />
-              <div class="card-content">
-                <h1>Elegant T-shirt</h1>
-                <h1>$45</h1>
-                <div class="stars">
-                  <i class="ri-star-s-fill"></i>
-                  <i class="ri-star-s-fill"></i>
-                  <i class="ri-star-s-fill"></i>
-                  <i class="ri-star-s-fill"></i>
-                  <i class="ri-star-s-fill"></i>
+        <div class="card-container-t" id="card-container-t">
+          <script type="module">
+            const Products3 = window.productList.slice(13, 17);
+            const cardContainer3 = document.getElementById("card-container-t");
+            Products3.forEach((product, index) => {
+              const card = document.createElement("div");
+              card.className = "card-t";
+              card.innerHTML = `
+                <div class="card-img">
+                    <img src="${product.img}" alt="${product.title}" />
                 </div>
-                <button class="btn">
-                  <span class="btn-text">Add to cart</span>
-                </button>
-              </div>
-            </div>
-          </div>
-          <!-- card four -->
-          <div class="card">
-            <div class="card-image">
-              <img
-                src="https://qodeinteractive.com/qi-addons-for-elementor/wp-content/uploads/2021/02/shop-img-20.jpg"
-                alt=""
-              />
-            </div>
-            <div class="card-content">
-              <h1>Colorful dress</h1>
-              <h1>$65</h1>
-              <div class="stars">
-                <i class="ri-star-s-fill"></i>
-                <i class="ri-star-s-fill"></i>
-                <i class="ri-star-s-fill"></i>
-                <i class="ri-star-s-fill"></i>
-                <i class="ri-star-s-fill"></i>
-              </div>
-              <button class="btn">
-                <span class="btn-text">Add to cart</span>
-              </button>
-            </div>
-          </div>
+                <div class="card-three-title">
+                    <h1>${product.title}</h1>
+                    <h4>$${product.price}</h4>
+                    <h4 class="add-c" onclick="AddToCart(${
+                      index + 13
+                    }, this); return false;">Add to cart</h4>
+                </div>
+                <div class="card-category"><h1>${product.category}</h1></div>
+            `;
+              cardContainer3.appendChild(card);
+            });
+          </script>
         </div>
       </section>
 
-      <!-- -------------------- component-five -------------------- -->
+      <!-- -------------------- component-four(named 5)-------------------- -->
       <section id="content-five">
-        <div class="card-heading">
-          <h6>Customize with ease</h6>
-          <h5>Five item layout types</h5>
-        </div>
-        <div class="card-container">
-          <div class="card">
-            <img
-              src="https://qodeinteractive.com/qi-addons-for-elementor/wp-content/uploads/2021/02/shop-img-21.jpg"
-              alt="Card Image"
-            />
-            <div class="card-content">
-              <h3>Abstract picture</h3>
-              <div class="price-container">
-                <h4 class="price">$70</h4>
-                <button class="add-to-cart">Add to Cart</button>
-              </div>
-              <div class="stars">
-                <i class="ri-star-s-fill"></i>
-                <i class="ri-star-s-fill"></i>
-                <i class="ri-star-s-fill"></i>
-                <i class="ri-star-s-fill"></i>
-                <i class="ri-star-s-fill"></i>
-              </div>
-            </div>
-          </div>
-          <div class="card">
-            <img
-              src="https://qodeinteractive.com/qi-addons-for-elementor/wp-content/uploads/2021/02/shop-img-22.jpg"
-              alt="Card Image"
-            />
-            <div class="card-content">
-              <h3>Minimal frame</h3>
-              <div class="price-container">
-                <h4 class="price">$65</h4>
-                <button class="add-to-cart">Add to cart</button>
-              </div>
-              <div class="stars">
-                <i class="ri-star-s-fill"></i>
-                <i class="ri-star-s-fill"></i>
-                <i class="ri-star-s-fill"></i>
-                <i class="ri-star-s-fill"></i>
-                <i class="ri-star-s-fill"></i>
-              </div>
-            </div>
-          </div>
-          <div class="card">
-            <img
-              src="https://qodeinteractive.com/qi-addons-for-elementor/wp-content/uploads/2021/02/shop-img-23.jpg"
-              alt="Card Image"
-            />
-            <div class="card-content">
-              <h3>Blue lines</h3>
-              <div class="price-container">
-                <h4 class="price">$72</h4>
-                <button class="add-to-cart">Add to cart</button>
-              </div>
-              <div class="stars">
-                <i class="ri-star-s-fill"></i>
-                <i class="ri-star-s-fill"></i>
-                <i class="ri-star-s-fill"></i>
-                <i class="ri-star-s-fill"></i>
-                <i class="ri-star-s-fill"></i>
-              </div>
-            </div>
-          </div>
-          <div class="card">
-            <img
-              src="https://qodeinteractive.com/qi-addons-for-elementor/wp-content/uploads/2021/02/shop-img-24.jpg"
-              alt="Card Image"
-            />
-            <div class="card-content">
-              <h3>Minimal design</h3>
-              <div class="price-container">
-                <h4 class="price">$78</h4>
-                <button class="add-to-cart">Add to Cart</button>
-              </div>
-              <div class="stars">
-                <i class="ri-star-s-fill"></i>
-                <i class="ri-star-s-fill"></i>
-                <i class="ri-star-s-fill"></i>
-                <i class="ri-star-s-fill"></i>
-                <i class="ri-star-s-fill"></i>
-              </div>
-            </div>
-          </div>
+        <div class="card-container" id="card-container5">
+          <script type="module">
+            const Products5 = window.productList.slice(17, 21);
+            const cardContainer5 = document.getElementById("card-container5");
+            Products5.forEach((product, index) => {
+              const card = document.createElement("div");
+              card.className = "card";
+              card.innerHTML = `
+                <div class="card-image">
+                    <img src="${product.img}" alt="${product.title}" />
+                </div>
+                <div class="card-content">
+                    <h1>${product.title}</h1>
+                    <h4>$${product.price}</h4>
+                    <div class="stars">
+                      <i class="ri-star-s-fill"></i>
+                      <i class="ri-star-s-fill"></i>
+                      <i class="ri-star-s-fill"></i>
+                      <i class="ri-star-s-fill"></i>
+                      <i class="ri-star-s-fill"></i>
+                    </div>
+                    <button class="btn" onclick="AddToCart(${
+                      index + 17
+                    }, this); return false;">
+                      <span class="btn-text ">Add to cart</span>
+                    </button>
+                </div>
+            `;
+              cardContainer5.appendChild(card);
+            });
+          </script>
         </div>
       </section>
-      <!-- Component Six -->
     </main>
   </body>
 </html>

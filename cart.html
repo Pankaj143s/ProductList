@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shopping Cart</title>
+    <link rel="stylesheet" href="cartstyle.css" />
+    <script type="module">
+      import productList from "./productList.js";
+      window.productList = productList;
+    </script>
+    <script>
+      let SelectedProducts =
+        JSON.parse(localStorage.getItem("SelectedProducts")) || [];
+
+      function remove(index, rowElement) {
+        SelectedProducts.splice(index, 1);
+        localStorage.setItem(
+          "SelectedProducts",
+          JSON.stringify(SelectedProducts)
+        );
+
+        // Remove the corresponding row from the DOM
+        rowElement.parentElement.removeChild(rowElement);
+
+        // Update totals
+        updateTotals();
+      }
+
+      function updateSubtotal(rowElement, price) {
+        const quantityInput = rowElement.querySelector(".quantity-input");
+        const subtotalElement = rowElement.querySelector(".subtotal");
+        const quantity = parseInt(quantityInput.value, 10);
+
+        const subtotal = price * quantity;
+        subtotalElement.textContent = `$${subtotal.toFixed(2)}`;
+
+        // Update totals
+        updateTotals();
+      }
+
+      function updateTotals() {
+        const subtotalElements = document.querySelectorAll(".subtotal");
+        let total = 0;
+
+        subtotalElements.forEach((subtotalElement) => {
+          total += parseFloat(subtotalElement.textContent.replace("$", ""));
+        });
+
+        document.querySelector(
+          ".cart-totals .subtotal-value"
+        ).textContent = `$${total.toFixed(2)}`;
+        document.querySelector(
+          ".cart-totals .total-value"
+        ).textContent = `$${total.toFixed(2)}`;
+      }
+    </script>
+  </head>
+
+  <body>
+    <div class="cart-container">
+      <table class="cart-table">
+        <thead>
+          <tr>
+            <th>Product</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Subtotal</th>
+          </tr>
+        </thead>
+        <tbody class="container" id="container">
+          <script type="module">
+            const cardContainer = document.getElementById("container");
+
+            SelectedProducts.forEach((productIndex, index) => {
+              let product = productList[productIndex];
+
+              const row = document.createElement("tr");
+              row.innerHTML = `
+                            <td class="product-cell">
+                                <button class="remove-item" onClick="remove(${index}, this.closest('tr'))">×</button>
+                                <img src="${product.img}" alt="${
+                product.title
+              }">
+                                <span class="product-name">${
+                                  product.title
+                                }</span>
+                            </td>
+                            <td>$${product.price.toFixed(2)}</td>
+                            <td><input type="number" value="1" min="1" class="quantity-input" /></td>
+                            <td class="subtotal">$${product.price.toFixed(
+                              2
+                            )}</td>
+                        `;
+              cardContainer.appendChild(row);
+
+              // Add event listener to quantity input
+              const quantityInput = row.querySelector(".quantity-input");
+              quantityInput.addEventListener("input", () =>
+                updateSubtotal(row, product.price)
+              );
+            });
+
+            // Initial totals calculation
+            updateTotals();
+          </script>
+        </tbody>
+      </table>
+      <div class="cart-summary">
+        <div class="cart-totals">
+          <h2>Cart totals</h2>
+          <div class="total-row">
+            <span>Subtotal</span>
+            <span class="subtotal-value">$0.00</span>
+          </div>
+          <div class="total-row">
+            <span>Total</span>
+            <span class="total-value">$0.00</span>
+          </div>
+        </div>
+        <button class="checkout">Proceed to checkout</button>
+      </div>
+    </div>
+  </body>
+</html>
