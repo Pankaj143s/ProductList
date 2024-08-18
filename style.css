@@ -82,6 +82,7 @@
 }
 
 /* ------------------------------Sidebar CSS End---------------------------- */
+/* =============== Component One CSS =============== */
 #content-one {
   padding-top: 2rem;
   display: flex;
@@ -92,13 +93,13 @@
 }
 #content-one .card-heading {
   padding-bottom: 50px;
+  text-align: center;
 }
 
 #content-one .card-heading h5 {
   font-size: 1rem;
   font-weight: 500;
   padding: 10px 0px;
-  text-align: center;
 }
 
 #content-one .card-heading h6 {
@@ -108,25 +109,22 @@
   letter-spacing: 2px;
 }
 #content-one .card-container {
-  /* width: 100%; */
-  width: calc(100% - 11rem);
+  width: calc(100% - 33.5rem);
   height: auto;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   gap: 100px 30px;
-
-  /* background: blue; */
 }
 
 #content-one .card {
-  /* background: red; */
   width: 410px;
   height: 500px;
-  /* padding: 2rem; */
+
   overflow: hidden;
   display: flex;
+  flex-wrap: wrap;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -159,12 +157,16 @@
 #content-one .cart-btn {
   color: white;
   background: black;
-  padding: 20px 50px;
+  padding: 20px 40px;
   transform: translate(-50%, -50%);
   left: 50%;
   top: 52%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: absolute;
   visibility: hidden;
+  cursor: pointer;
   opacity: 0;
   transition: top 0.2s ease, opacity 0.2s ease, visibility 0.2s ease;
 }
@@ -193,92 +195,78 @@
   font-weight: 400;
 }
 
-/* ------------------Responsive------------------- */
-/* ------------------Mobile------------------------ */
-@media (max-width: 600px) {
-  #content-one .card-heading {
-    padding: 2vw;
-  }
+/* ------------------Responsive Content One------------------- */
+/* ----- Mobile ----- */
 
-  #content-one h6 {
-    text-align: center;
-    font-size: 3.1rem;
-    font-weight: 500;
-    padding-bottom: 1rem;
-  }
-
+@media (max-width: 680.98px) {
   #content-one .card-container {
     width: 100%;
-    height: auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 3px 3px;
   }
 
   #content-one .card {
-    width: 100%;
-    padding: 2rem;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-
-  #content-one .cart-btn {
-    color: white;
-    background: black;
-    width: 50vw;
-    height: 7vh;
-    transform: translate(-50%, -50%);
-    left: 50%;
-    top: 50%;
-    position: absolute;
-    visibility: hidden;
-    opacity: 0;
-    transition: top 0.4s ease, opacity 0.4s ease, visibility 0.4s ease;
+    width: 85%;
+    height: auto;
   }
 }
-
-/* -----------------Tablet----------------------  */
-@media (min-width: 601px) and (max-width: 1024px) {
+/* ----- Tablet ----- */
+@media (min-width: 681px) and (max-width: 768.98px) {
   #content-one .card-container {
     width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 140px 25px;
   }
-
   #content-one .card {
-    width: 240px;
-    height: 310px;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    width: 40%;
+    height: auto;
   }
-
+}
+/* ----- Small Laptop ----- */
+@media (min-width: 769px) and (max-width: 1024.98px) {
+  #content-one .card-container {
+    width: 100%;
+  }
+  #content-one .card {
+    width: 23%;
+    height: auto;
+  }
   #content-one .cart-btn {
-    width: 80%;
-    text-align: center;
-    color: white;
-    background: black;
-    padding: 10px 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transform: translate(-50%, -50%);
-    left: 50%;
-    top: 50%;
-    position: absolute;
-    visibility: hidden;
-    opacity: 0;
-    transition: top 0.4s ease, opacity 0.4s ease, visibility 0.4s ease;
+    width: 60%;
+    padding: 10px 0;
+  }
+}
+/* ----- Laptop ----- */
+@media (min-width: 1025px) and (max-width: 1199.98px) {
+  #content-one .card-container {
+    width: 100%;
+  }
+  #content-one .card {
+    width: 29%;
+    height: auto;
+  }
+  #content-one .cart-btn {
+    width: 60%;
+  }
+}
+/* ----- Monitor ----- */
+@media (min-width: 1200px) and (max-width: 1439.98px) {
+  #content-one .card-container {
+    width: 100%;
+    padding: 0% 7%;
+  }
+  #content-one .card {
+    width: 30%;
+  }
+}
+/* ----- Large Monitors ----- */
+@media (min-width: 1440px) {
+  #content-one .card-container {
+    width: 100%;
+    padding: 0% 13%;
+  }
+  #content-one .card {
+    width: 29%;
+    height: auto;
+  }
+  #content-one .cart-btn {
+    width: 50%;
   }
 }
 /* =============== Component Two CSS ========== */
@@ -381,28 +369,72 @@
   width: 0;
 }
 
-/* --------------Component Two Responsivness---------------------- */
-/*------------------- Mobile ------------*/
-
-@media (max-width: 600px) {
-  #content-two .card-two-container .card {
-    width: 100%;
-    padding: 0px 15px;
-  }
-}
-/* -----------------------Tablet------------- */
-
-@media (min-width: 601px) and (max-width: 1024px) {
+/* ------------------Responsive Content Two------------------- */
+/* ----- Mobile ----- */
+@media (max-width: 680.98px) {
   #content-two .card-two-container {
-    padding-top: 10px;
+    width: 100%;
   }
   #content-two .card-two-container .card {
-    width: 240px;
-    height: 350px;
-    padding-bottom: 20px;
+    width: 95%;
+    height: auto;
   }
 }
 
+/* ----- Tablet ----- */
+@media (min-width: 681px) and (max-width: 768.98px) {
+  #content-two .card-two-container {
+    width: 100%;
+  }
+  #content-two .card-two-container .card {
+    width: 45%;
+    height: auto;
+  }
+}
+
+/* ----- Small Laptop ----- */
+@media (min-width: 769px) and (max-width: 1024.98px) {
+  #content-two .card-two-container {
+    width: 100%;
+  }
+  #content-two .card-two-container .card {
+    width: 29%;
+    height: auto;
+  }
+}
+
+/* ----- Laptop ----- */
+@media (min-width: 1025px) and (max-width: 1199.98px) {
+  #content-two .card-two-container {
+    align-items: baseline;
+  }
+  #content-two .card-two-container .card {
+    width: 14%;
+    height: auto;
+  }
+}
+
+/* ----- Monitor ----- */
+@media (min-width: 1200px) and (max-width: 1439.98px) {
+  #content-two .card-two-container {
+    gap: 25px 18px;
+  }
+  #content-two .card-two-container .card {
+    width: 15%;
+    height: auto;
+  }
+}
+
+/* ----- Large Monitors ----- */
+@media (min-width: 1440px) {
+  #content-two .card-two-container {
+    gap: 25px 18px;
+  }
+  #content-two .card-two-container .card {
+    width: 15%;
+    height: auto;
+  }
+}
 /* =============== Component Three CSS ========== */
 #content-three {
   display: flex;
@@ -503,29 +535,46 @@
   font-size: 1rem;
   font-weight: 500;
 }
-/* Responsive Component three*/
-/* Mobile */
-@media (max-width: 768px) {
-  #content-three .card-container-t {
-    gap: 50px;
-  }
-
-  #content-three .card {
-    width: 330px;
-  }
-  #content-three .card-three-title {
-    padding: 30px 0px;
+/* ------------------Responsive Content Three------------------- */
+/* ----- Mobile ----- */
+@media (max-width: 680.98px) {
+  #content-three .card-t {
+    width: 80%;
   }
 }
 
-/* Tablet */
-@media (max-width: 1024px) and (min-width: 769px) {
-  #content-three {
-    padding-top: 120px;
-  }
-
+/* ----- Tablet ----- */
+@media (min-width: 681px) and (max-width: 768.98px) {
   #content-three .card-t {
-    width: 380px;
+    width: 40%;
+  }
+}
+
+/* ----- Small Laptop ----- */
+@media (min-width: 769px) and (max-width: 1024.98px) {
+  #content-three .card-t {
+    width: 40%;
+  }
+}
+
+/* ----- Laptop ----- */
+@media (min-width: 1025px) and (max-width: 1199.98px) {
+  #content-three .card-t {
+    width: 22%;
+  }
+}
+
+/* ----- Monitor ----- */
+@media (min-width: 1200px) and (max-width: 1439.98px) {
+  #content-three .card-t {
+    width: 19%;
+  }
+}
+
+/* ----- Large Monitors ----- */
+@media (min-width: 1440px) {
+  #content-three .card-t {
+    width: 19%;
   }
 }
 
