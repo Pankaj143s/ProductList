@@ -4,12 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="style.css" />
     <!-- Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=DM+Sans&family=Poppins&family=Roboto&display=swap"
       rel="stylesheet"
     />
     <!-- icon cdn -->
@@ -17,42 +16,35 @@
       href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
       rel="stylesheet"
     />
+
     <script type="module">
       import productList from "./productList.js";
       window.productList = productList;
     </script>
+
     <script>
       let SelectedProducts =
         JSON.parse(localStorage.getItem("SelectedProducts")) || [];
 
-      function AddToCart(index, button) {
-        console.log(SelectedProducts);
-
-        // Add the passed value to the global array
-        SelectedProducts.push(index);
-
-        // Save to localStorage
-        localStorage.setItem(
-          "SelectedProducts",
-          JSON.stringify(SelectedProducts)
-        );
-
-        // Update the button to "Show Cart"
-        button.innerHTML = "<h1>Show Cart</h1>";
-        button.onclick = function () {
+      function AddToCart(index, btnElement) {
+        if (!SelectedProducts.includes(index)) {
+          SelectedProducts.push(index);
+          localStorage.setItem(
+            "SelectedProducts",
+            JSON.stringify(SelectedProducts)
+          );
+          btnElement.innerHTML = "<h1>View Cart</h1>";
+          window.alert(
+            "Product Added to cart. Total Products: " + SelectedProducts.length
+          );
+          updateProductCount();
+        } else {
           window.location.href = "cart.html";
-        };
-
-        // Show alert and update product count
-        window.alert(
-          "Product Added to cart. Total Products: " + SelectedProducts.length
-        );
-        updateProductCount();
+        }
       }
 
       function updateProductCount() {
         const productCountElement = document.getElementById("product-count");
-
         if (productCountElement) {
           productCountElement.textContent = SelectedProducts.length;
         } else {
@@ -60,15 +52,36 @@
         }
       }
 
-      window.onload = updateProductCount;
-
       function ClearCart() {
         localStorage.clear();
         SelectedProducts = [];
         window.alert("Cart is Cleared");
         updateProductCount();
+        updateButtons();
       }
+
+      // Update the buttons on page load
+      function updateButtons() {
+        const buttons = document.querySelectorAll(
+          ".cart-btn a, .add-to-cart, .btn-text, .add-c"
+        );
+        buttons.forEach((button, index) => {
+          const productIndex = parseInt(
+            button.getAttribute("onclick").match(/\d+/)[0]
+          );
+          if (SelectedProducts.includes(productIndex)) {
+            button.innerHTML = "View Cart";
+          }
+        });
+      }
+
+      // Run the update functions when the page loads
+      window.onload = function () {
+        updateProductCount();
+        updateButtons();
+      };
     </script>
+
     <title>Document</title>
   </head>
 
@@ -97,7 +110,7 @@
           </li>
           <li onclick="window.location.href = 'cart.html';">
             <span><i class="ri-shopping-cart-fill"></i></span
-            ><a href="#" onclick="window.location.href = 'cart.html';">Cart</a>
+            ><a href="#">Cart</a>
           </li>
           <h3 id="product-count"></h3>
           <button onclick="ClearCart()">Clear Cart</button>
@@ -106,7 +119,7 @@
     </aside>
 
     <main>
-      <!-- -------------------- component-one -------------------- -->
+      <!-- Section One -->
       <section id="content-one">
         <div class="card-heading">
           <h5>Two layout types</h5>
@@ -136,7 +149,7 @@
         </div>
       </section>
 
-      <!-- -------------------- component-two -------------------- -->
+      <!-- Section Two -->
       <section id="content-two">
         <div class="card-two-container" id="card-two-container">
           <script type="module">
@@ -168,7 +181,7 @@
         </div>
       </section>
 
-      <!-- -------------------- component-three -------------------- -->
+      <!-- Section Three -->
       <section id="content-three">
         <div class="card-heading">
           <h6>Adapt list columns for different devices</h6>
@@ -182,25 +195,25 @@
               const card = document.createElement("div");
               card.className = "card-t";
               card.innerHTML = `
-                <div class="card-img">
-                    <img src="${product.img}" alt="${product.title}" />
-                </div>
-                <div class="card-three-title">
-                    <h1>${product.title}</h1>
-                    <h4>$${product.price}</h4>
-                    <h4 class="add-c" onclick="AddToCart(${
-                      index + 13
-                    }, this); return false;">Add to cart</h4>
-                </div>
-                <div class="card-category"><h1>${product.category}</h1></div>
-            `;
+            <div class="card-img">
+                <img src="${product.img}" alt="${product.title}" />
+            </div>
+            <div class="card-three-title">
+                <h1>${product.title}</h1>
+                <h4>$${product.price}</h4>
+                <h4 class="add-c" onclick="AddToCart(${
+                  index + 13
+                }, this); return false;">Add to cart</h4>
+            </div>
+            <div class="card-category"><h1>${product.category}</h1></div>
+        `;
               cardContainer3.appendChild(card);
             });
           </script>
         </div>
       </section>
-
-      <!-- -------------------- component-four(named 5)-------------------- -->
+      <!-- Section Four -->
+      <!-- Section Five -->
       <section id="content-five">
         <div class="card-container" id="card-container5">
           <script type="module">
@@ -210,27 +223,67 @@
               const card = document.createElement("div");
               card.className = "card";
               card.innerHTML = `
-                <div class="card-image">
-                    <img src="${product.img}" alt="${product.title}" />
+            <div class="card-image">
+                <img src="${product.img}" alt="${product.title}" />
+            </div>
+            <div class="card-content">
+                <h1>${product.title}</h1>
+                <h4>$${product.price}</h4>
+                <div class="stars">
+                  <i class="ri-star-s-fill"></i>
+                  <i class="ri-star-s-fill"></i>
+                  <i class="ri-star-s-fill"></i>
+                  <i class="ri-star-s-fill"></i>
+                  <i class="ri-star-s-fill"></i>
                 </div>
-                <div class="card-content">
-                    <h1>${product.title}</h1>
-                    <h4>$${product.price}</h4>
-                    <div class="stars">
-                      <i class="ri-star-s-fill"></i>
-                      <i class="ri-star-s-fill"></i>
-                      <i class="ri-star-s-fill"></i>
-                      <i class="ri-star-s-fill"></i>
-                      <i class="ri-star-s-fill"></i>
-                    </div>
-                    <button class="btn" onclick="AddToCart(${
-                      index + 17
-                    }, this); return false;">
-                      <span class="btn-text ">Add to cart</span>
-                    </button>
-                </div>
-            `;
+                <button class="btn" onclick="AddToCart(${
+                  index + 17
+                }, this); return false;">
+                  <span class="btn-text ">Add to cart</span>
+                </button>
+            </div>
+        `;
               cardContainer5.appendChild(card);
+            });
+          </script>
+        </div>
+      </section>
+
+      <!--  Section Five ... -->
+      <section id="content-four">
+        <div class="card-heading">
+          <h6>Customize with ease</h6>
+          <h5>Five item layout types</h5>
+        </div>
+        <div class="card-container" id="card-container4">
+          <script type="module">
+            const Products4 = window.productList.slice(21, 25);
+            const cardContainer4 = document.getElementById("card-container4");
+            Products4.forEach((product, index) => {
+              const card = document.createElement("div");
+              card.className = "card";
+              card.innerHTML = `
+            <div class="card-img">
+                <img src="${product.img}" alt="${product.title}" />
+            </div>
+            <div class="card-content">
+                <h1>${product.title}</h1>
+                <div class="price-container">
+                  <h4 class="price">$${product.price}</h4>
+                  <button class="add-to-cart" onclick="AddToCart(${
+                    index + 21
+                  }, this); return false;">Add to Cart</button>
+                  </div>
+            </div>
+            <div class="stars">
+              <i class="ri-star-s-fill"></i>
+              <i class="ri-star-s-fill"></i>
+              <i class="ri-star-s-fill"></i>
+              <i class="ri-star-s-fill"></i>
+              <i class="ri-star-s-fill"></i>
+            </div>
+        `;
+              cardContainer4.appendChild(card);
             });
           </script>
         </div>
