@@ -22,6 +22,13 @@
   z-index: 5;
   opacity: 0.8;
 }
+#sidebar .sidebar-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+}
+
 #sidebar:hover {
   width: 260px;
   opacity: 1;
@@ -31,7 +38,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 10px 10px;
+  padding: 10px 8px;
 }
 
 #sidebar .logo h2 {
@@ -108,6 +115,28 @@
   padding: 10px 0px;
   letter-spacing: 2px;
 }
+/* Pl Number Circle */
+#content-one .pl-number {
+  position: relative;
+  display: inline-block;
+}
+
+#content-one .pl-number i {
+  font-size: 4rem; /* Adjust the size of your icon */
+}
+#content-one .pl-div {
+  text-align: center;
+}
+#content-one .pl-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.2rem; /* Adjust the font size of the text inside the icon */
+  padding: 10px;
+  color: white; /* Color of the text */
+}
+
 #content-one .card-container {
   width: calc(100% - 33.5rem);
   height: auto;
@@ -116,6 +145,7 @@
   justify-content: center;
   align-items: center;
   gap: 100px 30px;
+  margin-top: 40px;
 }
 
 #content-one .card {
@@ -135,6 +165,7 @@
   opacity: 1;
   top: 50%;
   transition: top 0.4s ease, opacity 0.4s ease, visibility 0.4s ease;
+  text-decoration: none;
 }
 /* image hover effect */
 #content-one .card:hover .card-img img {
@@ -150,11 +181,11 @@
   width: 100%;
   height: auto;
   object-fit: cover;
-
   transition: transform 0.4s ease;
 }
-
+/* text underline hover effect  */
 #content-one .cart-btn {
+  text-decoration: none;
   color: white;
   background: black;
   padding: 20px 40px;
@@ -170,11 +201,27 @@
   opacity: 0;
   transition: top 0.2s ease, opacity 0.2s ease, visibility 0.2s ease;
 }
-
 #content-one .cart-btn h1 {
+  position: relative;
   font-size: 1rem;
-  font-weight: 500;
 }
+
+#content-one .cart-btn h1::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  height: 1px;
+  width: 0; /* Initial width should be 0 */
+  background-color: rgb(255, 255, 255); /* Set the underline color to white */
+  transition: width 0.3s ease;
+}
+
+#content-one .cart-btn:hover h1::after {
+  width: 100%; /* Expand underline on hover of the button */
+}
+
+/* underline effect ends*/
 
 #content-one .card-title {
   width: 100%;
@@ -206,6 +253,10 @@
   #content-one .card {
     width: 85%;
     height: auto;
+  }
+  #content-one .pl-div {
+    width: 100%;
+    text-align: center;
   }
 }
 /* ----- Tablet ----- */
@@ -254,6 +305,10 @@
   #content-one .card {
     width: 30%;
   }
+  #content-one .cart-btn {
+    width: 60%;
+    padding: 20px 10px;
+  }
 }
 /* ----- Large Monitors ----- */
 @media (min-width: 1440px) {
@@ -266,17 +321,43 @@
     height: auto;
   }
   #content-one .cart-btn {
-    width: 50%;
+    width: 60%;
+    padding: 20px 10px;
   }
 }
 /* =============== Component Two CSS ========== */
+
+#content-two {
+  margin-top: 100px;
+}
 #content-two .card-two-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   gap: 25px 25px;
-  margin-top: 180px;
+  margin-top: 40px;
+}
+/* Pl number div */
+#content-two .pl-number {
+  position: relative;
+  display: inline-block;
+}
+
+#content-two .pl-number i {
+  font-size: 4rem; /* Adjust the size of your icon */
+}
+#content-two .pl-div {
+  text-align: center;
+}
+#content-two .pl-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.2rem; /* Adjust the font size of the text inside the icon */
+  padding: 10px;
+  color: white; /* Color of the text */
 }
 
 #content-two .card-two-container .card {
@@ -285,6 +366,9 @@
 #content-two .card-img {
   position: relative;
   overflow: hidden;
+}
+#content-two .card-img a {
+  color: black;
 }
 #content-two .card-img img {
   width: 100%;
@@ -456,6 +540,27 @@
   padding: 10px 0px;
   letter-spacing: 2px;
 }
+/* Pl div */
+#content-three .pl-number {
+  position: relative;
+  display: inline-block;
+}
+
+#content-three .pl-number i {
+  font-size: 4rem; /* Adjust the size of your icon */
+}
+#content-three .pl-div {
+  width: calc(100% - 15.5rem);
+}
+#content-three .pl-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.2rem; /* Adjust the font size of the text inside the icon */
+  padding: 10px;
+  color: white; /* Color of the text */
+}
 
 #content-three .card-container-t {
   padding-top: 50px;
@@ -510,7 +615,7 @@
   cursor: pointer;
 }
 
-#content-three .add-c::after {
+#content-three .card-three-title .add-c::after {
   content: "";
   position: absolute;
   left: 0;
@@ -519,10 +624,12 @@
   width: 100%;
   background-color: black;
   transition: width 0.4s ease;
+  color: #000;
 }
 
 #content-three .add-c:hover::after {
   width: 0;
+  color: black;
 }
 #content-three .card-three-title {
   padding-top: 20px;
@@ -600,15 +707,37 @@
   padding: 10px 0px;
   letter-spacing: 2px;
 }
+/* pl div */
+#content-four .pl-number {
+  position: relative;
+  display: inline-block;
+}
+
+#content-four .pl-number i {
+  font-size: 4rem; /* Adjust the size of your icon */
+}
+#content-four .pl-div {
+  text-align: center;
+}
+#content-four .pl-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.2rem; /* Adjust the font size of the text inside the icon */
+  padding: 10px;
+  color: white; /* Color of the text */
+}
 
 #content-four .card-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
-  padding: 20px;
+  padding: 0px 20px 20px 20px;
   max-width: 1200px;
   width: 100%;
+  margin-top: 40px;
 }
 
 #content-four .card {
@@ -711,15 +840,34 @@
 /* Component Five CSS(named as content 4 in section) */
 
 #content-five {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   width: 100%; /* Ensure full width */
-  padding-top: 150px;
+  padding-top: 100px;
+}
+/* pl div */
+#content-five .pl-number {
+  position: relative;
+  display: inline-block;
+}
+
+#content-five .pl-number i {
+  font-size: 4rem; /* Adjust the size of your icon */
+}
+#content-five .pl-div {
+  text-align: center;
+}
+#content-five .pl-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.2rem; /* Adjust the font size of the text inside the icon */
+  padding: 10px;
+  color: white; /* Color of the text */
 }
 
 #content-five .card-container {
   display: flex;
+  margin-top: 40px;
 }
 
 #content-five .card {

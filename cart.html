@@ -54,6 +54,20 @@
           ".cart-totals .total-value"
         ).textContent = `$${total.toFixed(2)}`;
       }
+
+      // Move the ClearCart function outside so it can be accessed globally
+      function ClearCart() {
+        console.log("Clicked");
+
+        localStorage.clear();
+        SelectedProducts = [];
+        window.alert("Cart is Cleared");
+
+        // Remove all the rows from the cart table
+        const container = document.getElementById("container");
+        container.innerHTML = ""; // Clear the container
+        updateTotals(); // Reset totals
+      }
     </script>
   </head>
 
@@ -119,6 +133,13 @@
           </div>
         </div>
         <button class="checkout">Proceed to checkout</button>
+        <button onclick="ClearCart()" class="clear-cart">Clear Cart</button>
+        <button
+          onclick="window.location.href='index.html'"
+          class="continue-shopping"
+        >
+          Continue shopping
+        </button>
       </div>
     </div>
   </body>

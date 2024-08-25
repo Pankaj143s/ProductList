@@ -4,7 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
+    <!-- Favicon -->
+    <link rel="icon" href="logo.jpeg" type="image/jpeg" />
     <!-- Font -->
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -86,7 +89,7 @@
   </head>
 
   <body>
-    <aside id="sidebar">
+    <!-- <aside id="sidebar">
       <div class="sidebar-container">
         <div class="logo">
           <img src="logo.jpeg" alt="" />
@@ -94,29 +97,21 @@
         </div>
         <ul class="links">
           <li>
-            <span><i class="ri-list-view"></i></span><a href="">Product-list</a>
+            <a href="index.html">Product List</a>
           </li>
           <li>
-            <span><i class="ri-play-circle-fill"></i></span
-            ><a href="">Product-slider</a>
+            <a href="../product-comparison/index (2).html"
+              >Product Comparison</a
+            >
           </li>
           <li>
-            <span><i class="ri-file-list-fill"></i></span
-            ><a href="">Product-category-list</a>
+            <a href="../product-category-list/index.html"
+              >Product Category List</a
+            >
           </li>
-          <li>
-            <span><i class="ri-file-add-fill"></i></span
-            ><a href="cart.html">Add-to-cart-button</a>
-          </li>
-          <li onclick="window.location.href = 'cart.html';">
-            <span><i class="ri-shopping-cart-fill"></i></span
-            ><a href="#">Cart</a>
-          </li>
-          <h3 id="product-count"></h3>
-          <button onclick="ClearCart()">Clear Cart</button>
         </ul>
       </div>
-    </aside>
+    </aside> -->
 
     <main>
       <!-- Section One -->
@@ -125,6 +120,13 @@
           <h5>Two layout types</h5>
           <h6>Choose your style</h6>
         </div>
+        <div class="pl-div">
+          <span class="pl-number">
+            <i class="ri-circle-fill"></i>
+            <span class="pl-text">PL1</span>
+          </span>
+        </div>
+
         <div class="card-container" id="card-container">
           <script type="module">
             const Products = window.productList.slice(0, 6);
@@ -151,6 +153,12 @@
 
       <!-- Section Two -->
       <section id="content-two">
+        <div class="pl-div">
+          <span class="pl-number">
+            <i class="ri-circle-fill"></i>
+            <span class="pl-text">PL2</span>
+          </span>
+        </div>
         <div class="card-two-container" id="card-two-container">
           <script type="module">
             const Products2 = window.productList.slice(6, 13);
@@ -188,6 +196,12 @@
           <h5>Responsive Settings</h5>
         </div>
         <div class="card-container-t" id="card-container-t">
+          <div class="pl-div">
+            <span class="pl-number">
+              <i class="ri-circle-fill"></i>
+              <span class="pl-text">PL3</span>
+            </span>
+          </div>
           <script type="module">
             const Products3 = window.productList.slice(13, 17);
             const cardContainer3 = document.getElementById("card-container-t");
@@ -214,7 +228,14 @@
       </section>
       <!-- Section Four -->
       <!-- Section Five -->
+
       <section id="content-five">
+        <div class="pl-div">
+          <span class="pl-number">
+            <i class="ri-circle-fill"></i>
+            <span class="pl-text">PL4</span>
+          </span>
+        </div>
         <div class="card-container" id="card-container5">
           <script type="module">
             const Products5 = window.productList.slice(17, 21);
@@ -254,6 +275,12 @@
         <div class="card-heading">
           <h6>Customize with ease</h6>
           <h5>Five item layout types</h5>
+        </div>
+        <div class="pl-div">
+          <span class="pl-number">
+            <i class="ri-circle-fill"></i>
+            <span class="pl-text">PL5</span>
+          </span>
         </div>
         <div class="card-container" id="card-container4">
           <script type="module">
